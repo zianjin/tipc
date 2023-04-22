@@ -1,0 +1,23 @@
+f() {
+  return 3;
+}
+
+g() {
+  var x;
+  x = f(); // call function by name
+  return x;
+}
+
+h(h1) {
+  var y, r;
+  y = h1;  // assign function reference
+  r = y(); // call function by reference
+  return r;
+}
+
+main() {
+  if (h(f) != 3) error h(f);
+  if (f() != 3) error f();
+  if (h(g) != 3) error h(g);
+  return 0;
+}

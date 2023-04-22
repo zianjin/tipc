@@ -1,0 +1,35 @@
+# Java
+*.class
+
+# C and Cpp
+*.o
+a.out
+
+# ANTLR4
+*.tokens
+*.interp
+
+# build directory
+build
+
+# LLVM
+*.bc
+*.ll
+
+# CLion
+.idea/
+cmake-build-debug
+
+# Vim
+*.swp
+
+# Lcov
+gen/
+
+html/
+latex/
+xml/
+*.info
+
+# reports
+coverage.out/

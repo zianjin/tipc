@@ -1,0 +1,8 @@
+main(z) {
+  z = z + 3;
+  if (10 > z)
+     error z;
+  else 
+     output z;
+  return z + 1;
+}
