@@ -20,6 +20,12 @@ build
 .idea/
 cmake-build-debug
 
+# VSCode
+.vscode/
+
+# Mac
+.DS_Store
+
 # Vim
 *.swp
 
