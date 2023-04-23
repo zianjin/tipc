@@ -6,6 +6,7 @@
 #include "TipRecord.h"
 #include "TipAbsentField.h"
 #include "TipInt.h"
+#include "TipFloat.h"
 
 TypeConstraintVisitor::TypeConstraintVisitor(SymbolTable* st, std::unique_ptr<ConstraintHandler> handler)
   : symbolTable(st), constraintHandler(std::move(handler)) {};
@@ -77,10 +78,14 @@ void TypeConstraintVisitor::endVisit(ASTFunction * element) {
 /*! \brief Type constraints for numeric literal.
  *
  * Type rules for "I":  
- *   [[I]] = int
+ *   [[I]] = int/float
  */
-void TypeConstraintVisitor::endVisit(ASTNumberExpr * element) {
+void TypeConstraintVisitor::endVisit(ASTIntExpr * element) {
     constraintHandler->handle(astToVar(element), std::make_shared<TipInt>());
+}
+
+void TypeConstraintVisitor::endVisit(ASTFloatExpr * element) {
+    constraintHandler->handle(astToVar(element), std::make_shared<TipFloat>());
 }
 
 /*! \brief Type constraints for binary operator.

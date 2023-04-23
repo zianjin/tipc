@@ -12,9 +12,9 @@ target_sources(
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipFunction.h
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipInt.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipInt.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipFloat.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipFloat.h
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipMu.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipMu.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipMu.h
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipMu.h
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipRecord.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/concrete/TipRecord.h

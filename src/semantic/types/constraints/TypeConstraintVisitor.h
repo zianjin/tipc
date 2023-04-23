@@ -47,7 +47,8 @@ public:
     void endVisit(ASTIfStmt * element) override;
     void endVisit(ASTInputExpr * element) override;
     void endVisit(ASTNullExpr * element) override;
-    void endVisit(ASTNumberExpr * element) override;
+    void endVisit(ASTIntExpr * element) override;
+    void endVisit(ASTFloatExpr * element) override;
     void endVisit(ASTOutputStmt * element) override;
     void endVisit(ASTRecordExpr * element) override;
     void endVisit(ASTRefExpr * element) override;

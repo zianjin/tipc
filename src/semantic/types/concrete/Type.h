@@ -11,6 +11,7 @@
 #include "TipAlpha.h"
 #include "TipFunction.h"
 #include "TipInt.h"
+#include "TipFloat.h"
 #include "TipMu.h"
 #include "TipRecord.h"
 #include "TipAbsentField.h"
