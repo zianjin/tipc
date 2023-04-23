@@ -66,7 +66,11 @@ void PrettyPrinter::endVisit(ASTFunction * element) {
   indentLevel--;
 }
 
-void PrettyPrinter::endVisit(ASTNumberExpr * element) {
+void PrettyPrinter::endVisit(ASTIntExpr * element) {
+  visitResults.push_back(std::to_string(element->getValue()));
+}
+
+void PrettyPrinter::endVisit(ASTFloatExpr * element) {
   visitResults.push_back(std::to_string(element->getValue()));
 }
 

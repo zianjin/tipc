@@ -452,10 +452,16 @@ llvm::Value* ASTFunction::codegen() {
   return TheFunction;
 }  // LCOV_EXCL_LINE
 
-llvm::Value* ASTNumberExpr::codegen() {
+llvm::Value* ASTIntExpr::codegen() {
   LOG_S(1) << "Generating code for " << *this;
 
   return ConstantInt::get(Type::getInt64Ty(TheContext), getValue());
+} // LCOV_EXCL_LINE
+
+llvm::Value* ASTFloatExpr::codegen() {
+  LOG_S(1) << "Generating code for " << *this;
+
+  return ConstantInt::get(Type::getFloatTy(TheContext), getValue());
 } // LCOV_EXCL_LINE
 
 llvm::Value* ASTBinaryExpr::codegen() {
