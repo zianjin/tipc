@@ -194,7 +194,7 @@ TEST_CASE("ASTPrinterTest: conditional expression printers", "[ASTNodePrint]") {
 
 TEST_CASE("ASTPrinterTest: local expr test", "[ASTNodePrint]") {
     // Constructor expects unique pointers so we must create them
-    auto zero = std::make_unique<ASTNumberExpr>(0); 
+    auto zero = std::make_unique<ASTIntExpr>(0); 
     auto var = std::make_unique<ASTVariableExpr>("y"); 
 
     // Here we just use the default constructor
@@ -208,7 +208,7 @@ TEST_CASE("ASTPrinterTest: local expr test", "[ASTNodePrint]") {
 }
 
 TEST_CASE("ASTPrinterTest: local unique expr test", "[ASTNodePrint]") {
-    auto zero = std::make_unique<ASTNumberExpr>(0); 
+    auto zero = std::make_unique<ASTIntExpr>(0); 
     auto var = std::make_unique<ASTVariableExpr>("y"); 
 
     // Here we create a unique pointer to the binary expr

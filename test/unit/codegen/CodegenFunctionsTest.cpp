@@ -29,8 +29,8 @@ TEST_CASE("CodegenFunction: ASTAssignsStmt throws InternalError on RHS codegen n
 TEST_CASE("CodegenFunction: ASTIfStmt throws InternalError on COND codegen nullptr", "[CodegenFunctions]") {
   ASTIfStmt ifStmt(
       std::make_unique<nullcodegen::MockASTExpr>(),
-      std::make_unique<ASTReturnStmt>(std::make_unique<ASTNumberExpr>(42)),
-      std::make_unique<ASTReturnStmt>(std::make_unique<ASTNumberExpr>(42))
+      std::make_unique<ASTReturnStmt>(std::make_unique<ASTIntExpr>(42)),
+      std::make_unique<ASTReturnStmt>(std::make_unique<ASTIntExpr>(42))
   );
   REQUIRE_THROWS_AS(ifStmt.codegen(), InternalError);
 }

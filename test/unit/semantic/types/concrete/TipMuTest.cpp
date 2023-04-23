@@ -10,7 +10,7 @@
 
 TEST_CASE("TipMu: test TipMus are compared by their underlying t and v" "[TipMu]") {
     auto term = std::make_shared<TipInt>();
-    ASTNumberExpr n(42);
+    ASTIntExpr n(42);
     auto var = std::make_shared<TipVar>(&n);
 
     TipMu mu(var, term);
@@ -20,8 +20,8 @@ TEST_CASE("TipMu: test TipMus are compared by their underlying t and v" "[TipMu]
 
 TEST_CASE("TipMu: test not equals" "[TipMu]") {
     auto term = std::make_shared<TipInt>();
-    ASTNumberExpr n(41);
-    ASTNumberExpr n2(42);
+    ASTIntExpr n(41);
+    ASTIntExpr n2(42);
     auto var = std::make_shared<TipVar>(&n);
     auto var2 = std::make_shared<TipVar>(&n2);
 
@@ -32,7 +32,7 @@ TEST_CASE("TipMu: test not equals" "[TipMu]") {
 
 TEST_CASE("TipMu: test comparison with a different type" "[TipMu]") {
     auto term = std::make_shared<TipInt>();
-    ASTNumberExpr n(41);
+    ASTIntExpr n(41);
     auto var = std::make_shared<TipVar>(&n);
     TipMu mu(var, term);
 
@@ -43,7 +43,7 @@ TEST_CASE("TipMu: test comparison with a different type" "[TipMu]") {
 
 TEST_CASE("TipMu: test Getters", "[TipMu]") {
     auto term = std::make_shared<TipInt>();
-    ASTNumberExpr n(42);
+    ASTIntExpr n(42);
     auto var = std::make_shared<TipVar>(&n);
     TipMu mu(var, term);
 
@@ -53,7 +53,7 @@ TEST_CASE("TipMu: test Getters", "[TipMu]") {
 
 TEST_CASE("TipMu: test output stream", "[TipMu]") {
     auto term = std::make_shared<TipInt>();
-    ASTNumberExpr n(42);
+    ASTIntExpr n(42);
     auto var = std::make_shared<TipVar>(&n);
     TipMu mu(var, term);
     std::stringstream stream;

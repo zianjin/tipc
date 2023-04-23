@@ -1,4 +1,4 @@
-#include "ASTNumberExpr.h"
+#include "ASTIntExpr.h"
 #include "TipVar.h"
 #include "UnionFind.h"
 
@@ -11,7 +11,7 @@
 static std::vector<std::shared_ptr<TipType>> intsToTipVars(std::vector<int> &values) {
     std::vector<std::shared_ptr<TipType>> pointers;
     for(auto &value : values) {
-        ASTNumberExpr * n = new ASTNumberExpr(value);
+        ASTIntExpr * n = new ASTIntExpr(value);
         pointers.emplace_back(std::make_shared<TipVar>(n));
     }
     return pointers;
@@ -56,9 +56,9 @@ TEST_CASE("UnionFind: Test find", "[UnionFind]") {
     unionFind.quick_union(nine, four);
 
     auto actualRootOfFour = std::dynamic_pointer_cast<TipVar>(unionFind.find(four));
-    auto actualIntOfRootOfFour = dynamic_cast<ASTNumberExpr *>(actualRootOfFour->getNode())->getValue();
+    auto actualIntOfRootOfFour = dynamic_cast<ASTIntExpr *>(actualRootOfFour->getNode())->getValue();
     auto actualRootOfNine = std::dynamic_pointer_cast<TipVar>(unionFind.find(nine));
-    auto actualIntOfRootOfNine = dynamic_cast<ASTNumberExpr *>(actualRootOfNine->getNode())->getValue();
+    auto actualIntOfRootOfNine = dynamic_cast<ASTIntExpr *>(actualRootOfNine->getNode())->getValue();
 
     REQUIRE(8 == actualIntOfRootOfFour);
     REQUIRE(8 == actualIntOfRootOfNine);
