@@ -39,8 +39,10 @@ target_sources(
           ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTNode.h
           ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTNullExpr.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTNullExpr.h
-          ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTNumberExpr.cpp
-          ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTNumberExpr.h
+          ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTIntExpr.cpp
+          ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTIntExpr.h
+          ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTFloatExpr.cpp
+          ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTFloatExpr.h
           ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTOutputStmt.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTOutputStmt.h
           ${CMAKE_CURRENT_SOURCE_DIR}/treetypes/ASTProgram.cpp

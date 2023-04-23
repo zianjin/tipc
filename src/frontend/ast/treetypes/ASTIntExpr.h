@@ -2,12 +2,12 @@
 
 #include "ASTExpr.h"
 
-/*! \brief Class for numeric literals.
+/*! \brief Class for integer literals.
  */
-class ASTNumberExpr : public ASTExpr {
+class ASTIntExpr : public ASTExpr {
   int VAL;
 public:
-  ASTNumberExpr(int VAL) : VAL(VAL) {}
+  ASTIntExpr(int VAL) : VAL(VAL) {}
   int getValue() const { return VAL; }
   void accept(ASTVisitor * visitor) override;
   llvm::Value* codegen() override;
