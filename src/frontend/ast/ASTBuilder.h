@@ -41,7 +41,6 @@ public:
   void visitBinaryExpr(T* ctx, const std::string& op);
 
   Any visitFunction(TIPParser::FunctionContext *ctx) override;
-  Any visitNegNumber(TIPParser::NegNumberContext *ctx) override;
   Any visitAdditiveExpr(TIPParser::AdditiveExprContext *ctx) override;
   Any visitRelationalExpr(TIPParser::RelationalExprContext *ctx) override;
   Any visitMultiplicativeExpr(TIPParser::MultiplicativeExprContext *ctx) override;

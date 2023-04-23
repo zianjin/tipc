@@ -137,19 +137,6 @@ Any ASTBuilder::visitFunction(TIPParser::FunctionContext *ctx) {
   return "";
 }
 
-Any ASTBuilder::visitNegNumber(TIPParser::NegNumberContext *ctx) {
-  int val = std::stoi(ctx->NUMBER()->getText());
-  val = -val;
-  visitedExpr = std::make_unique<ASTNumberExpr>(val);
-
-  LOG_S(1) << "Built AST node " << *visitedExpr;
-
-  // Set source location 
-  visitedExpr->setLocation(ctx->getStart()->getLine(), 
-                           ctx->getStart()->getCharPositionInLine());
-  return "";
-}  // LCOV_EXCL_LINE
-
 /*
  * Unfortunately, the context types for binary expressions generated
  * by ANTLR are not organized into a sub-type hierarchy.  If they were
@@ -205,10 +192,27 @@ Any ASTBuilder::visitParenExpr(TIPParser::ParenExprContext *ctx) {
 } // LCOV_EXCL_LINE
 
 Any ASTBuilder::visitNumExpr(TIPParser::NumExprContext *ctx) {
-  int val = std::stoi(ctx->NUMBER()->getText());
-  visitedExpr = std::make_unique<ASTNumberExpr>(val);
+  // Extract the sign and number
+  bool neg = ctx->SUB() != nullptr;
 
-  LOG_S(1) << "Built AST node " << *visitedExpr;
+  // Deal with different numeric types
+  if (auto int_token = ctx->INTEGER()) {
+    // Case: Integer
+    int int_val = std::stoi(int_token->getText());
+    int_val = neg ? -int_val : int_val;
+    visitedExpr = std::make_unique<ASTIntExpr>(int_val);
+    LOG_S(1) << "Built AST node " << *visitedExpr << " (int)";
+  } else if (auto float_token = ctx->FLOAT()){
+    // Case: Float
+    float float_val = std::stof(float_token->getText());
+    float_val = neg ? -float_val : float_val;
+    visitedExpr = std::make_unique<ASTFloatExpr>(float_val);
+    LOG_S(1) << "Built AST node " << *visitedExpr << " (float)";
+  } else {
+    // Case: Error
+    visitedExpr = nullptr;
+    LOG_S(1) << "Invalid numeric expression";
+  }
 
   // Set source location 
   visitedExpr->setLocation(ctx->getStart()->getLine(), 
