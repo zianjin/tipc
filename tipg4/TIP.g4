@@ -52,7 +52,7 @@ expr : expr '(' (expr (',' expr)*)? ')' 	#funAppExpr
      | '(' expr ')'				#parenExpr
 ;
 
-numExpr : (ADD | SUB)? INTEGER | FLOAT;
+numExpr : (ADD | SUB)? (INTEGER | FLOAT);
 
 recordExpr : '{' (fieldExpr (',' fieldExpr)*)? '}' ;
 
