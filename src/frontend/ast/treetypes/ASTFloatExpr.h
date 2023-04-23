@@ -8,7 +8,7 @@ class ASTFloatExpr : public ASTExpr {
   float VAL;
 public:
   ASTFloatExpr(float VAL) : VAL(VAL) {}
-  int getValue() const { return VAL; }
+  float getValue() const { return VAL; }
   void accept(ASTVisitor * visitor) override;
   llvm::Value* codegen() override;
 
