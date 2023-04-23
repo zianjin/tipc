@@ -38,20 +38,21 @@ nameDeclaration : IDENTIFIER ;
 expr : expr '(' (expr (',' expr)*)? ')' 	#funAppExpr
      | expr '.' IDENTIFIER 			#accessExpr
      | '*' expr 				#deRefExpr
-     | SUB NUMBER				#negNumber
      | '&' expr					#refExpr
      | expr op=(MUL | DIV) expr 		#multiplicativeExpr
      | expr op=(ADD | SUB) expr 		#additiveExpr
      | expr op=GT expr 				#relationalExpr
      | expr op=(EQ | NE) expr 			#equalityExpr
      | IDENTIFIER				#varExpr
-     | NUMBER					#numExpr
+     | numExpr  	            #numRule
      | KINPUT					#inputExpr
      | KALLOC expr				#allocExpr
      | KNULL					#nullExpr
      | recordExpr				#recordRule
      | '(' expr ')'				#parenExpr
 ;
+
+numExpr : (ADD | SUB)? INTEGER | FLOAT;
 
 recordExpr : '{' (fieldExpr (',' fieldExpr)*)? '}' ;
 
@@ -94,7 +95,10 @@ GT  : '>' ;
 EQ  : '==' ;
 NE  : '!=' ;
 
-NUMBER : [0-9]+ ;
+INTEGER : DIGIT+ ;
+FLOAT: DIGIT* '.' DIGIT+ ;
+
+fragment DIGIT : [0-9] ;
 
 // Placing the keyword definitions first causes ANTLR4 to prioritize
 // their matching relative to IDENTIFIER (which comes later).
