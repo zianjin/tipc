@@ -8,4 +8,4 @@ mkdir build
 # Enter the build and rebuild
 cd build
 cmake ..
-make -j4
+make -j6
