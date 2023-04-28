@@ -35,6 +35,7 @@ public:
   virtual void endVisit(TipAlpha * element) override;
   virtual void endVisit(TipFunction * element) override;
   virtual void endVisit(TipInt * element) override;
+  virtual void endVisit(TipFloat * element) override;
   virtual void endVisit(TipMu * element) override;
   virtual void endVisit(TipRecord * element) override;
   virtual void endVisit(TipAbsentField * element) override;
