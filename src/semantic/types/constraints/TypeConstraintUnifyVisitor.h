@@ -13,6 +13,11 @@
 class TypeConstraintUnifyVisitor: public TypeConstraintVisitor {
 public:
     explicit TypeConstraintUnifyVisitor(SymbolTable *pTable, std::shared_ptr<Unifier> uni = nullptr);
+    
+    // Override parent class method
+    void endVisit(ASTFunction * element) override;
+    void endVisit(ASTBinaryExpr * element) override;
+
 private:
     static std::unique_ptr<ConstraintHandler> buildConstraintHandler(std::shared_ptr<Unifier> uni);
 
