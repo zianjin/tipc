@@ -12,10 +12,10 @@
  */
 class ConstraintUnifier: public ConstraintHandler {
 public:
+    ConstraintUnifier(std::shared_ptr<Unifier> uni);
     void handle(std::shared_ptr<TipType> t1, std::shared_ptr<TipType> t2) override;
 
 private:
-    Unifier unifier;
-
+    std::shared_ptr<Unifier> unifier;
 };
 
