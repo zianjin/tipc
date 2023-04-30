@@ -14,9 +14,9 @@
  */
 class TypeInference {
   SymbolTable* symbols;
-  std::unique_ptr<Unifier> unifier;
+  std::shared_ptr<Unifier> unifier;
 public:
-  TypeInference(SymbolTable* s, std::unique_ptr<Unifier> u) : symbols(s), unifier(std::move(u)) {}
+  TypeInference(SymbolTable* s, std::shared_ptr<Unifier> u) : symbols(s), unifier(std::move(u)) {}
 
   /*! \fn check
    *  \brief Generate type constraints, unify them, and report any errors.

@@ -1,6 +1,6 @@
 #include "TypeInference.h"
 #include "TypeConstraint.h"
-#include "TypeConstraintCollectVisitor.h"
+#include "TypeConstraintUnifyVisitor.h"
 #include "AbsentFieldChecker.h"
 #include "Unifier.h"
 #include "loguru.hpp"
@@ -16,13 +16,9 @@
 std::unique_ptr<TypeInference> TypeInference::check(ASTProgram* ast, SymbolTable* symbols) {
   LOG_S(1) << "Performing type inference";
 
-  TypeConstraintCollectVisitor visitor(symbols);
+  auto unifier = std::make_shared<Unifier>();
+  TypeConstraintUnifyVisitor visitor(symbols, unifier);
   ast->accept(&visitor);
-
-  LOG_S(1) << "Solving type constraints";
-
-  auto unifier =  std::make_unique<Unifier>(visitor.getCollectedConstraints());
-  unifier->solve();
 
   LOG_S(1) << "Checking that field accesses are defined";
 
